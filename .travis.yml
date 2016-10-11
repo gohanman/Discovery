@@ -1,5 +1,5 @@
 sudo: false
-language: fsharp
+language: csharp
 solution: Discovery.sln
 install:
     - nuget restore Discovery.sln
