@@ -1,0 +1,9 @@
+sudo: false
+language: fsharp
+solution: Discovery.sln
+install:
+    - nuget restore Discovery.sln
+    - nuget install NUnit.Runners -Version 3.4.1 -OutputDirectory testrunner
+script:
+    - xbuild /p:Configuration=Release Discovery.sln
+    - mono ./testrunner/NUnit.ConsoleRunner.3.4.1/tools/nunit3-console.exe ./Discovery.Tests/bin/Release/Discovery.Tests.dll
